@@ -266,7 +266,7 @@ html { background-color: ${provider.getBackgroundColor(options)}; }
 
   async [_getPage](html) {
     if (!this[_browser]) {
-      this[_browser] = await puppeteer.launch();
+      this[_browser] = await puppeteer.launch({ args: ['--no-sandbox'] });
       this[_page] = await this[_browser].newPage();
     }
 
